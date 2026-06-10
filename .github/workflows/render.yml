@@ -17,5 +17,5 @@ jobs:
         run: |
           git config user.name "leaderboard-bot"
           git config user.email "leaderboard-bot@users.noreply.github.com"
-          git add README.md
+          git add README.md chart.svg sparklines
           git diff --cached --quiet || { git commit -m "render leaderboard"; git push; }

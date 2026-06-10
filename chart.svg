@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 260" width="640" height="260" role="img" aria-label="Cumulative percent return since joining, per strategy">
+<line id="zero" x1="44" y1="30.9" x2="500" y2="30.9" stroke="#999999" stroke-width="1" stroke-dasharray="3 3"/>
+<text x="38" y="33.9" font-size="10" fill="#888888" text-anchor="end" font-family="sans-serif">0%</text>
+<text x="38" y="24.0" font-size="10" fill="#888888" text-anchor="end" font-family="sans-serif">+0.5%</text>
+<text x="38" y="232.0" font-size="10" fill="#888888" text-anchor="end" font-family="sans-serif">-6.8%</text>
+<text x="44" y="250" font-size="10" fill="#888888" font-family="sans-serif">2026-06-10</text>
+<circle cx="44.0" cy="217.1" r="2.4" fill="#185FA5"/>
+<line x1="510" y1="20" x2="526" y2="20" stroke="#185FA5" stroke-width="2"/>
+<text x="530" y="23" font-size="10" fill="#888888" font-family="sans-serif">luc-theme-concentr… -6.3%</text>
+</svg>
