@@ -1,0 +1,41 @@
+name: validate-and-merge
+# SECURITY: pull_request_target runs with THIS repo's permissions against fork
+# PRs. We therefore NEVER check out or execute anything from the PR — we read
+# exactly ONE JSON data file from the PR head via the API, and validate it with
+# the engine installed from the trusted upstream engine repo (never from the PR).
+on:
+  pull_request_target:
+    types: [opened, synchronize, reopened]
+permissions:
+  contents: write
+  pull-requests: write
+jobs:
+  guard:
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+      PR: ${{ github.event.pull_request.number }}
+      AUTHOR: ${{ github.event.pull_request.user.login }}
+      HEAD_REPO: ${{ github.event.pull_request.head.repo.full_name }}
+      HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+      UPSTREAM: ${{ github.repository }}
+    steps:
+      - name: Guard — PR must change exactly scores/<author>.json
+        run: |
+          files=$(gh api "repos/${UPSTREAM}/pulls/${PR}/files" -q '.[].filename')
+          if [ "$files" != "scores/${AUTHOR}.json" ]; then
+            gh pr comment "$PR" -R "$UPSTREAM" -b "Not auto-merged: a score PR must change exactly one file, \`scores/${AUTHOR}.json\` (this PR changed: ${files:-nothing}). A human will take a look."
+            exit 1
+          fi
+      - name: Fetch the score file from the PR head (data only, never code)
+        run: |
+          gh api "repos/${HEAD_REPO}/contents/scores/${AUTHOR}.json?ref=${HEAD_SHA}" -q .content | base64 -d > /tmp/score.json
+      - name: Validate with the canonical engine validator
+        run: |
+          pip install -q "git+https://github.com/SevLuc/trade-gpt"
+          if ! python3 -m trade_gpt.leaderboard validate /tmp/score.json; then
+            gh pr comment "$PR" -R "$UPSTREAM" -b "Not auto-merged: the score file failed validation (percentages and dates only — never balances). A human will take a look."
+            exit 1
+          fi
+      - name: Merge
+        run: gh pr merge "$PR" -R "$UPSTREAM" --squash
