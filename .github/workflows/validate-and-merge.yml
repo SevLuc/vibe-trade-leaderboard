@@ -31,7 +31,15 @@ jobs:
         run: |
           gh api "repos/${HEAD_REPO}/contents/scores/${AUTHOR}.json?ref=${HEAD_SHA}" -q .content | base64 -d > /tmp/score.json
       - name: Validate with the canonical engine validator
+        env:
+          ENGINE_READ_TOKEN: ${{ secrets.ENGINE_READ_TOKEN }}
         run: |
+          # Engine repo may be private: a read token (if configured) goes in
+          # ~/.netrc so it never appears in argv or error-echoed URLs.
+          if [ -n "$ENGINE_READ_TOKEN" ]; then
+            printf "machine github.com\nlogin x-access-token\npassword %s\n" "$ENGINE_READ_TOKEN" > ~/.netrc
+            chmod 600 ~/.netrc
+          fi
           pip install -q "git+https://github.com/SevLuc/trade-gpt"
           if ! python3 -m trade_gpt.leaderboard validate /tmp/score.json; then
             gh pr comment "$PR" -R "$UPSTREAM" -b "Not auto-merged: the score file failed validation (percentages and dates only — never balances). A human will take a look."
