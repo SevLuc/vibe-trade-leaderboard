@@ -46,4 +46,8 @@ jobs:
             exit 1
           fi
       - name: Merge
+        # Use the PAT when available: pushes made by the default GITHUB_TOKEN
+        # do NOT trigger other workflows, so render.yml would never fire.
+        env:
+          GH_TOKEN: ${{ secrets.ENGINE_READ_TOKEN || github.token }}
         run: gh pr merge "$PR" -R "$UPSTREAM" --squash
