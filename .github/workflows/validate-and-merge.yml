@@ -1,14 +1,16 @@
 name: validate-and-merge
 # SECURITY: pull_request_target runs with THIS repo's permissions against fork
-# PRs. We therefore NEVER check out or execute anything from the PR — we read
-# exactly ONE JSON data file from the PR head via the API, and validate it with
-# the engine installed from the trusted upstream engine repo (never from the PR).
+# PRs. We NEVER check out or execute the PR's code — we read exactly ONE JSON
+# data file from the PR head via the API, and validate it with this repo's OWN
+# vendored validator (scripts/validate_score.py, fetched from trusted upstream
+# main via the API — never from the PR head). No engine install, no secret.
 on:
   pull_request_target:
     types: [opened, synchronize, reopened]
 permissions:
   contents: write
   pull-requests: write
+  actions: write
 jobs:
   guard:
     runs-on: ubuntu-latest
@@ -30,24 +32,18 @@ jobs:
       - name: Fetch the score file from the PR head (data only, never code)
         run: |
           gh api "repos/${HEAD_REPO}/contents/scores/${AUTHOR}.json?ref=${HEAD_SHA}" -q .content | base64 -d > /tmp/score.json
-      - name: Validate with the canonical engine validator
-        env:
-          ENGINE_READ_TOKEN: ${{ secrets.ENGINE_READ_TOKEN }}
+      - name: Validate with this repo's own vendored validator
         run: |
-          # Engine repo may be private: a read token (if configured) goes in
-          # ~/.netrc so it never appears in argv or error-echoed URLs.
-          if [ -n "$ENGINE_READ_TOKEN" ]; then
-            printf "machine github.com\nlogin x-access-token\npassword %s\n" "$ENGINE_READ_TOKEN" > ~/.netrc
-            chmod 600 ~/.netrc
-          fi
-          pip install -q "git+https://github.com/SevLuc/trade-gpt"
-          if ! python3 -m trade_gpt.leaderboard validate /tmp/score.json; then
+          # Fetch the validator from trusted UPSTREAM main (this repo) — never
+          # from the PR head. Pure stdlib, no engine install, no secret.
+          gh api "repos/${UPSTREAM}/contents/scripts/validate_score.py?ref=main" -q .content | base64 -d > /tmp/validate_score.py
+          if ! python3 /tmp/validate_score.py validate /tmp/score.json; then
             gh pr comment "$PR" -R "$UPSTREAM" -b "Not auto-merged: the score file failed validation (percentages and dates only — never balances). A human will take a look."
             exit 1
           fi
       - name: Merge
-        # Use the PAT when available: pushes made by the default GITHUB_TOKEN
-        # do NOT trigger other workflows, so render.yml would never fire.
-        env:
-          GH_TOKEN: ${{ secrets.ENGINE_READ_TOKEN || github.token }}
         run: gh pr merge "$PR" -R "$UPSTREAM" --squash
+      - name: Trigger the README/chart render
+        # A github.token merge does NOT fire render.yml's push trigger, so
+        # dispatch it explicitly (needs actions: write).
+        run: gh workflow run render.yml --repo "$UPSTREAM"
