@@ -4,8 +4,8 @@
 <text x="38" y="24.0" font-size="10" fill="#888888" text-anchor="end" font-family="sans-serif">+1.8%</text>
 <text x="38" y="232.0" font-size="10" fill="#888888" text-anchor="end" font-family="sans-serif">-6.9%</text>
 <text x="44" y="250" font-size="10" fill="#888888" font-family="sans-serif">2026-06-10</text>
-<text x="500" y="250" font-size="10" fill="#888888" text-anchor="end" font-family="sans-serif">2026-06-15</text>
-<polyline points="44.0,217.1 272.0,150.7 500.0,30.9" fill="none" stroke="#185FA5" stroke-width="2"/>
+<text x="500" y="250" font-size="10" fill="#888888" text-anchor="end" font-family="sans-serif">2026-06-16</text>
+<polyline points="44.0,217.1 196.0,150.7 348.0,30.9 500.0,49.5" fill="none" stroke="#185FA5" stroke-width="2"/>
 <line x1="510" y1="20" x2="526" y2="20" stroke="#185FA5" stroke-width="2"/>
-<text x="530" y="23" font-size="10" fill="#888888" font-family="sans-serif">luc-theme-concentr… +1.2%</text>
+<text x="530" y="23" font-size="10" fill="#888888" font-family="sans-serif">luc-theme-concentr… +0.5%</text>
 </svg>
