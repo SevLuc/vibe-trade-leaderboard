@@ -7,17 +7,22 @@ skipped with a footnote (defense in depth — the auto-merge validator should ha
 rejected them upstream). Only percentages and dates are ever drawn — never any
 dollar amount (the privacy floor).
 
+A participant is identified by the score FILE stem, not the github login, so one
+person can run several accounts (e.g. scores/SevLuc_paper.json + SevLuc_live.json
+-> ids "SevLuc_paper"/"SevLuc_live"). The stem is "<login>_<account>"; a legacy
+file with no "_" (scores/SevLuc.json) still works and shows no account label.
+
 Generated artifacts, all committed so the README's <img> tags resolve:
-- chart.svg          — cumulative-return lines, one per participant (≥1 score).
-- sparklines/<gh>.svg — a tiny per-participant trend, embedded in the table.
+- chart.svg          — cumulative-return lines, one per account (≥1 score).
+- sparklines/<id>.svg — a tiny per-account trend, embedded in the table.
 """
 import json
 import sys
 from datetime import date
 from pathlib import Path
 
-# Stable per-person line colours (assigned by sorted github login, so a given
-# player keeps their colour regardless of daily rank). Saturated mid-tones that
+# Stable per-account line colours (assigned by sorted file id, so a given
+# account keeps its colour regardless of daily rank). Saturated mid-tones that
 # read on both light and dark README backgrounds.
 _PALETTE = ["#185FA5", "#0F6E56", "#D85A30", "#534AB7", "#993556",
             "#854F0B", "#0C447C", "#A32D2D"]
@@ -31,8 +36,13 @@ def load_scores(scores_dir):
             d = json.loads(p.read_text())
             hist = [{"date": str(e["date"]), "return_pct": float(e["return_pct"])}
                     for e in d["history"]]
+            name = str(d["name"])
+            _login, _, account = p.stem.partition("_")
             rows.append({
-                "name": str(d["name"]),
+                "id": p.stem,                    # unique per account file
+                "name": name,
+                "account": account,              # "" for a legacy single-account file
+                "label": name + (f" ({account})" if account else ""),
                 "github": str(d["github"]),
                 "return_pct": float(d["return_pct"]),
                 "as_of": str(d["as_of"]),
@@ -94,8 +104,8 @@ def chart_svg(rows):
     def py(v):
         return T + (hi - v) / span * ph
 
-    colour = {r["github"]: _PALETTE[i % len(_PALETTE)]
-              for i, r in enumerate(sorted(rows, key=lambda r: r["github"]))}
+    colour = {r["id"]: _PALETTE[i % len(_PALETTE)]
+              for i, r in enumerate(sorted(rows, key=lambda r: r["id"]))}
     out = [f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" '
            f'width="{W}" height="{H}" role="img" '
            f'aria-label="Cumulative percent return since joining, per strategy">']
@@ -117,8 +127,8 @@ def chart_svg(rows):
         out.append(f'<text x="{L+pw}" y="{H-10}" font-size="10" fill="{_AXIS}" '
                    f'text-anchor="end" font-family="sans-serif">{dates[-1]}</text>')
     # one line per participant (stable colour; legend ranked by latest return)
-    for r in sorted(rows, key=lambda r: (-r["return_pct"], r["name"])):
-        c = colour[r["github"]]
+    for r in sorted(rows, key=lambda r: (-r["return_pct"], r["label"], r["id"])):
+        c = colour[r["id"]]
         pts = [(px(dx[h["date"]]), py(h["return_pct"])) for h in r["history"]]
         if len(pts) == 1:
             out.append(f'<circle cx="{_n(pts[0][0])}" cy="{_n(pts[0][1])}" r="2.4" '
@@ -129,9 +139,9 @@ def chart_svg(rows):
                        f'stroke-width="2"/>')
     # legend
     ly = T + 4
-    for r in sorted(rows, key=lambda r: (-r["return_pct"], r["name"])):
-        c = colour[r["github"]]
-        label = (r["name"][:18] + "…") if len(r["name"]) > 19 else r["name"]
+    for r in sorted(rows, key=lambda r: (-r["return_pct"], r["label"], r["id"])):
+        c = colour[r["id"]]
+        label = (r["label"][:18] + "…") if len(r["label"]) > 19 else r["label"]
         out.append(f'<line x1="{L+pw+10}" y1="{ly}" x2="{L+pw+26}" y2="{ly}" '
                    f'stroke="{c}" stroke-width="2"/>')
         out.append(f'<text x="{L+pw+30}" y="{ly+3}" font-size="10" fill="{_AXIS}" '
@@ -142,22 +152,22 @@ def chart_svg(rows):
 
 
 def render(rows, skipped):
-    rows = sorted(rows, key=lambda r: (-r["return_pct"], r["name"]))
+    rows = sorted(rows, key=lambda r: (-r["return_pct"], r["label"], r["id"]))
     lines = ["# 🏆 vibe-trade leaderboard", ""]
     if rows:
         lines += ["![cumulative return since joining](chart.svg)", ""]
     lines += ["| # | Strategy | Return | Trend | As of | Days |",
               "|---|---|---|---|---|---|"]
     for i, r in enumerate(rows, 1):
-        spark = (f'<img src="sparklines/{r["github"]}.svg" alt="trend" '
+        spark = (f'<img src="sparklines/{r["id"]}.svg" alt="trend" '
                  f'height="20">')
-        lines.append(f"| {i} | {r['name']} | {r['return_pct']:+.2f}% | {spark} "
+        lines.append(f"| {i} | {r['label']} | {r['return_pct']:+.2f}% | {spark} "
                      f"| {r['as_of']} | {r['days']} |")
     if not rows:
         lines.append("| – | *no scores yet* | – | – | – | – |")
-    lines += ["", "*Return = cumulative % since joining, on an Alpaca **paper** "
-                  "account. Honor system — audit anyone's score via this repo's "
-                  "git history.*"]
+    lines += ["", "*Return = cumulative % since joining, on an Alpaca account "
+                  "(**paper** or **live**, labelled per row). Honor system — "
+                  "audit anyone's score via this repo's git history.*"]
     if skipped:
         lines += ["", "<sub>" + " · ".join(skipped) + "</sub>"]
     return "\n".join(lines) + "\n"
@@ -173,7 +183,7 @@ def main(argv=None):
         spark_dir = root / "sparklines"
         spark_dir.mkdir(exist_ok=True)
         for r in rows:
-            (spark_dir / f"{r['github']}.svg").write_text(sparkline_svg(r["history"]))
+            (spark_dir / f"{r['id']}.svg").write_text(sparkline_svg(r["history"]))
     print(f"rendered {len(rows)} scores")
     return 0
 
