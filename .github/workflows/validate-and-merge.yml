@@ -22,25 +22,44 @@ jobs:
       HEAD_SHA: ${{ github.event.pull_request.head.sha }}
       UPSTREAM: ${{ github.repository }}
     steps:
-      - name: Guard — PR must change exactly scores/<author>.json
+      - name: Guard — PR may change only scores/<author>[_<account>].json file(s)
         run: |
           files=$(gh api "repos/${UPSTREAM}/pulls/${PR}/files" -q '.[].filename')
-          if [ "$files" != "scores/${AUTHOR}.json" ]; then
-            gh pr comment "$PR" -R "$UPSTREAM" -b "Not auto-merged: a score PR must change exactly one file, \`scores/${AUTHOR}.json\` (this PR changed: ${files:-nothing}). A human will take a look."
+          if [ -z "$files" ]; then
+            gh pr comment "$PR" -R "$UPSTREAM" -b "Not auto-merged: this PR changed no files. A human will take a look."
             exit 1
           fi
-      - name: Fetch the score file from the PR head (data only, never code)
+          # Every changed file must be THIS author's own score file: either
+          # scores/<author>.json or scores/<author>_<account>.json (account is
+          # alphanumeric — e.g. paper, live). A GitHub login can never contain
+          # '_', so the underscore unambiguously separates login from account:
+          # no other user's namespace can match this author's pattern.
+          while IFS= read -r f; do
+            if ! printf '%s' "$f" | grep -Eq "^scores/${AUTHOR}(_[A-Za-z0-9]+)?\.json$"; then
+              gh pr comment "$PR" -R "$UPSTREAM" -b "Not auto-merged: a score PR may change only \`scores/${AUTHOR}.json\` or \`scores/${AUTHOR}_<account>.json\` (this PR changed: $(printf '%s' "$files" | paste -sd, -)). A human will take a look."
+              exit 1
+            fi
+          done <<< "$files"
+      - name: Fetch + validate each score file (data only, never code)
         run: |
-          gh api "repos/${HEAD_REPO}/contents/scores/${AUTHOR}.json?ref=${HEAD_SHA}" -q .content | base64 -d > /tmp/score.json
-      - name: Validate with this repo's own vendored validator
-        run: |
-          # Fetch the validator from trusted UPSTREAM main (this repo) — never
-          # from the PR head. Pure stdlib, no engine install, no secret.
+          # Validator comes from trusted UPSTREAM main (this repo) — never from
+          # the PR head. Pure stdlib, no engine install, no secret.
           gh api "repos/${UPSTREAM}/contents/scripts/validate_score.py?ref=main" -q .content | base64 -d > /tmp/validate_score.py
-          if ! python3 /tmp/validate_score.py validate /tmp/score.json; then
-            gh pr comment "$PR" -R "$UPSTREAM" -b "Not auto-merged: the score file failed validation (percentages and dates only — never balances). A human will take a look."
-            exit 1
-          fi
+          files=$(gh api "repos/${UPSTREAM}/pulls/${PR}/files" -q '.[].filename')
+          while IFS= read -r f; do
+            gh api "repos/${HEAD_REPO}/contents/${f}?ref=${HEAD_SHA}" -q .content | base64 -d > /tmp/score.json
+            # The github field must be the PR author — no claiming someone else's
+            # row via a look-alike filename.
+            login=$(python3 -c 'import json; print(json.load(open("/tmp/score.json")).get("github",""))')
+            if [ "$login" != "$AUTHOR" ]; then
+              gh pr comment "$PR" -R "$UPSTREAM" -b "Not auto-merged: the \`github\` field in \`${f}\` must be \`${AUTHOR}\`. A human will take a look."
+              exit 1
+            fi
+            if ! python3 /tmp/validate_score.py validate /tmp/score.json; then
+              gh pr comment "$PR" -R "$UPSTREAM" -b "Not auto-merged: \`${f}\` failed validation (percentages and dates only — never balances). A human will take a look."
+              exit 1
+            fi
+          done <<< "$files"
       - name: Merge
         run: gh pr merge "$PR" -R "$UPSTREAM" --squash
       - name: Trigger the README/chart render
