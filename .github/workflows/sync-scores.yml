@@ -36,6 +36,11 @@ jobs:
         run: |
           set -euo pipefail
           git fetch origin score-update || { echo "no score-update branch — nothing to sync"; exit 0; }
+          # Files that were on the branch when it last diverged from main. A file
+          # present here but absent from main was intentionally removed/renamed on
+          # main (e.g. SevLuc.json -> SevLuc_paper.json) — we must NOT resurrect
+          # it. A file NOT here is a genuinely new account the branch introduced.
+          base=$(git merge-base main origin/score-update)
           applied=0
           while read -r f; do
             [ -z "$f" ] && continue
@@ -47,12 +52,16 @@ jobs:
               echo "::warning::$f failed validation on score-update; skipping"
               continue
             fi
-            # Regression guard: never move a score backwards. Apply only when the
-            # candidate's as_of is newer-or-equal to what's already on main.
             if [ -f "$f" ]; then
+              # Existing account: regression guard — never move a score backwards.
               # YYYY-MM-DD compares lexicographically, so a plain >= is correct.
               ok=$(python3 -c 'import json,sys; print("1" if json.load(open(sys.argv[2]))["as_of"] >= json.load(open(sys.argv[1]))["as_of"] else "0")' "$f" /tmp/candidate.json)
               [ "$ok" = "1" ] || { echo "::notice::$f on score-update is older than main; skipping"; continue; }
+            elif git cat-file -e "$base:$f" 2>/dev/null; then
+              # Not on main, but existed at the divergence point => removed/renamed
+              # on main on purpose. Do not bring it back.
+              echo "::notice::$f was removed/renamed on main; not resurrecting"
+              continue
             fi
             cp /tmp/candidate.json "$f"
             git add "$f"
