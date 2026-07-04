@@ -6,9 +6,6 @@
 <text x="44" y="250" font-size="10" fill="#888888" font-family="sans-serif">2026-06-10</text>
 <text x="500" y="250" font-size="10" fill="#888888" text-anchor="end" font-family="sans-serif">2026-06-23</text>
 <polyline points="44.0,217.1 101.0,169.6 158.0,83.8 215.0,97.1 272.0,67.9 329.0,46.6 386.0,30.9 443.0,45.3 500.0,74.0" fill="none" stroke="#185FA5" stroke-width="2"/>
-<polyline points="44.0,217.1 101.0,169.6 158.0,83.8 215.0,97.1 272.0,67.9 329.0,46.6 386.0,30.9 443.0,45.3 500.0,74.0" fill="none" stroke="#0F6E56" stroke-width="2"/>
 <line x1="510" y1="20" x2="526" y2="20" stroke="#185FA5" stroke-width="2"/>
 <text x="530" y="23" font-size="10" fill="#888888" font-family="sans-serif">luc-theme-concentr… +1.8%</text>
-<line x1="510" y1="36" x2="526" y2="36" stroke="#0F6E56" stroke-width="2"/>
-<text x="530" y="39" font-size="10" fill="#888888" font-family="sans-serif">luc-theme-concentr… +1.8%</text>
 </svg>
