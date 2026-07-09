@@ -7,20 +7,29 @@ name: sync-scores
 #
 # THE FAILURE THIS FIXES: the whole chain hinges on a PR being *opened* each
 # day. That step lives outside this repo and has failed before (see PR #3:
-# "cloud routine's ensure_pr step had no gh CLI"). When a score lands on the
+# "cloud routine's ensure_pr step had no gh CLI"; and the 2026-07 cloud env
+# where ensure_pr is egress/proxy-blocked). When a score lands on the
 # `score-update` branch but no PR is opened, GitHub fires nothing, the score
-# never reaches main, render never runs, and the leaderboard freezes — exactly
-# what happened after 2026-06-23.
+# never reaches main, render never runs, and the leaderboard freezes.
 #
-# WHAT THIS DOES: on a schedule (and on demand), it picks up any score sitting
-# on `score-update` that never made it into main, validates it with THIS repo's
-# own vendored validator, applies it to main, re-renders, and pushes. It reads
-# ONLY the scores/*.json data files from the branch — it never checks out or
-# executes score-branch code. It is idempotent: when score-update == main it
-# does nothing, so it composes harmlessly with the normal PR path.
+# WHAT THIS DOES: on every push to `score-update` (and on a schedule + on
+# demand as a backstop), it picks up any score sitting on `score-update` that
+# never made it into main, validates it with THIS repo's own vendored
+# validator, applies it to main, re-renders, and pushes. It reads ONLY the
+# scores/*.json data files from the branch — it never checks out or executes
+# score-branch code. It is idempotent: when score-update == main it does
+# nothing, so it composes harmlessly with the normal PR path.
+#
+# NOTE: GitHub reads a push-triggered workflow from the PUSHED branch, so this
+# file must carry the push trigger on score-update itself (not only on main).
+# The routine pushes score-update with a PAT (PAT pushes DO fire workflow
+# events); this job pushes to MAIN with the built-in GITHUB_TOKEN, whose pushes
+# do NOT trigger workflows — so no loop.
 on:
+  push:
+    branches: [score-update]   # fire instantly when a routine pushes a score
   schedule:
-    - cron: "0 */6 * * *"   # every 6h — catches the daily push whenever it lands
+    - cron: "0 */6 * * *"   # backstop — catches a push if the trigger is missed
   workflow_dispatch:
 permissions:
   contents: write
