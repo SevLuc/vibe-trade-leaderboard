@@ -4,11 +4,11 @@
 <text x="38" y="24.0" font-size="10" fill="#888888" text-anchor="end" font-family="sans-serif">+6.1%</text>
 <text x="38" y="232.0" font-size="10" fill="#888888" text-anchor="end" font-family="sans-serif">-7.4%</text>
 <text x="44" y="250" font-size="10" fill="#888888" font-family="sans-serif">2026-06-10</text>
-<text x="500" y="250" font-size="10" fill="#888888" text-anchor="end" font-family="sans-serif">2026-07-17</text>
-<polyline points="44.0,214.4 68.0,171.8 92.0,94.9 116.0,106.8 140.0,80.7 164.0,61.5 188.0,47.5 212.0,60.4 236.0,86.1 260.0,76.4 284.0,30.9 332.0,101.6 356.0,55.1 380.0,84.2 404.0,99.5 428.0,105.4 452.0,136.8 476.0,172.4 500.0,203.4" fill="none" stroke="#0F6E56" stroke-width="2"/>
-<polyline points="260.0,114.0 284.0,65.8 308.0,112.6 332.0,139.4 356.0,87.4 380.0,116.3 404.0,131.4 428.0,134.6 452.0,156.3 476.0,192.9 500.0,217.1" fill="none" stroke="#185FA5" stroke-width="2"/>
+<text x="500" y="250" font-size="10" fill="#888888" text-anchor="end" font-family="sans-serif">2026-07-20</text>
+<polyline points="44.0,214.4 66.8,171.8 89.6,94.9 112.4,106.8 135.2,80.7 158.0,61.5 180.8,47.5 203.6,60.4 226.4,86.1 249.2,76.4 272.0,30.9 317.6,101.6 340.4,55.1 363.2,84.2 386.0,99.5 408.8,105.4 431.6,136.8 454.4,172.4 477.2,203.4" fill="none" stroke="#0F6E56" stroke-width="2"/>
+<polyline points="249.2,114.0 272.0,65.8 294.8,112.6 317.6,139.4 340.4,87.4 363.2,116.3 386.0,131.4 408.8,134.6 431.6,156.3 454.4,192.9 477.2,217.1 500.0,210.7" fill="none" stroke="#185FA5" stroke-width="2"/>
 <line x1="510" y1="20" x2="526" y2="20" stroke="#0F6E56" stroke-width="2"/>
 <text x="530" y="23" font-size="10" fill="#888888" font-family="sans-serif">luc-sentiment (pap… -5.6%</text>
 <line x1="510" y1="36" x2="526" y2="36" stroke="#185FA5" stroke-width="2"/>
-<text x="530" y="39" font-size="10" fill="#888888" font-family="sans-serif">luc-theme-concentr… -6.5%</text>
+<text x="530" y="39" font-size="10" fill="#888888" font-family="sans-serif">luc-theme-concentr… -6.1%</text>
 </svg>
