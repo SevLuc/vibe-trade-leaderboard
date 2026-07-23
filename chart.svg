@@ -5,10 +5,10 @@
 <text x="38" y="232.0" font-size="10" fill="#888888" text-anchor="end" font-family="sans-serif">-7.4%</text>
 <text x="44" y="250" font-size="10" fill="#888888" font-family="sans-serif">2026-06-10</text>
 <text x="500" y="250" font-size="10" fill="#888888" text-anchor="end" font-family="sans-serif">2026-07-23</text>
-<polyline points="44.0,214.4 63.8,171.8 83.7,94.9 103.5,106.8 123.3,80.7 143.1,61.5 163.0,47.5 182.8,60.4 202.6,86.1 222.4,76.4 242.3,30.9 281.9,101.6 301.7,55.1 321.6,84.2 341.4,99.5 361.2,105.4 381.0,136.8 400.9,172.4 420.7,203.4 440.5,185.4 460.3,140.2 480.2,140.0" fill="none" stroke="#0F6E56" stroke-width="2"/>
+<polyline points="44.0,214.4 63.8,171.8 83.7,94.9 103.5,106.8 123.3,80.7 143.1,61.5 163.0,47.5 182.8,60.4 202.6,86.1 222.4,76.4 242.3,30.9 281.9,101.6 301.7,55.1 321.6,84.2 341.4,99.5 361.2,105.4 381.0,136.8 400.9,172.4 420.7,203.4 440.5,185.4 460.3,140.2 480.2,140.0 500.0,161.9" fill="none" stroke="#0F6E56" stroke-width="2"/>
 <polyline points="222.4,114.0 242.3,65.8 262.1,112.6 281.9,139.4 301.7,87.4 321.6,116.3 341.4,131.4 361.2,134.6 381.0,156.3 400.9,192.9 420.7,217.1 440.5,210.7 460.3,177.2 480.2,176.7 500.0,185.0" fill="none" stroke="#185FA5" stroke-width="2"/>
 <line x1="510" y1="20" x2="526" y2="20" stroke="#0F6E56" stroke-width="2"/>
-<text x="530" y="23" font-size="10" fill="#888888" font-family="sans-serif">luc-sentiment (pap… -1.6%</text>
+<text x="530" y="23" font-size="10" fill="#888888" font-family="sans-serif">luc-sentiment (pap… -3.0%</text>
 <line x1="510" y1="36" x2="526" y2="36" stroke="#185FA5" stroke-width="2"/>
 <text x="530" y="39" font-size="10" fill="#888888" font-family="sans-serif">luc-theme-concentr… -4.5%</text>
 </svg>
