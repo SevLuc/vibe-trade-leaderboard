@@ -5,10 +5,10 @@
 <text x="38" y="232.0" font-size="10" fill="#888888" text-anchor="end" font-family="sans-serif">-12.0%</text>
 <text x="44" y="250" font-size="10" fill="#888888" font-family="sans-serif">2026-06-10</text>
 <text x="500" y="250" font-size="10" fill="#888888" text-anchor="end" font-family="sans-serif">2026-08-04</text>
+<polyline points="44.0,164.9 60.3,133.8 76.6,77.6 92.9,86.4 109.1,67.3 125.4,53.3 141.7,43.0 158.0,52.5 174.3,71.2 190.6,64.1 206.9,30.9 239.4,82.5 255.7,48.6 272.0,69.8 288.3,81.0 304.6,85.3 320.9,108.3 337.1,134.3 353.4,156.9 369.7,143.7 386.0,110.7 402.3,110.6 418.6,126.6 434.9,145.2 451.1,167.0 467.4,199.0 483.7,158.5 500.0,72.3" fill="none" stroke="#0F6E56" stroke-width="2"/>
 <polyline points="190.6,91.6 206.9,56.4 223.1,90.6 239.4,110.1 255.7,72.1 272.0,93.2 288.3,104.3 304.6,106.6 320.9,122.5 337.1,149.2 353.4,166.9 369.7,162.2 386.0,137.7 402.3,137.4 418.6,143.5 434.9,169.7 451.1,184.2 467.4,217.1 483.7,181.2 500.0,94.4" fill="none" stroke="#185FA5" stroke-width="2"/>
-<polyline points="44.0,164.9 60.3,133.8 76.6,77.6 92.9,86.4 109.1,67.3 125.4,53.3 141.7,43.0 158.0,52.5 174.3,71.2 190.6,64.1 206.9,30.9 239.4,82.5 255.7,48.6 272.0,69.8 288.3,81.0 304.6,85.3 320.9,108.3 337.1,134.3 353.4,156.9 369.7,143.7 386.0,110.7 402.3,110.6 418.6,126.6 434.9,145.2 451.1,167.0 467.4,199.0 483.7,158.5" fill="none" stroke="#0F6E56" stroke-width="2"/>
-<line x1="510" y1="20" x2="526" y2="20" stroke="#185FA5" stroke-width="2"/>
-<text x="530" y="23" font-size="10" fill="#888888" font-family="sans-serif">luc-theme-concentr… -0.2%</text>
-<line x1="510" y1="36" x2="526" y2="36" stroke="#0F6E56" stroke-width="2"/>
-<text x="530" y="39" font-size="10" fill="#888888" font-family="sans-serif">luc-sentiment (pap… -5.7%</text>
+<line x1="510" y1="20" x2="526" y2="20" stroke="#0F6E56" stroke-width="2"/>
+<text x="530" y="23" font-size="10" fill="#888888" font-family="sans-serif">luc-sentiment (pap… +1.7%</text>
+<line x1="510" y1="36" x2="526" y2="36" stroke="#185FA5" stroke-width="2"/>
+<text x="530" y="39" font-size="10" fill="#888888" font-family="sans-serif">luc-theme-concentr… -0.2%</text>
 </svg>

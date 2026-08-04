@@ -1,8 +1,8 @@
 {
   "name": "luc-sentiment",
   "github": "SevLuc",
-  "return_pct": -5.74,
-  "as_of": "2026-07-30",
+  "return_pct": 1.66,
+  "as_of": "2026-08-04",
   "joined": "2026-06-05",
   "history": [
     {
@@ -112,6 +112,10 @@
     {
       "date": "2026-07-30",
       "return_pct": -5.74
+    },
+    {
+      "date": "2026-08-04",
+      "return_pct": 1.66
     }
   ]
 }
