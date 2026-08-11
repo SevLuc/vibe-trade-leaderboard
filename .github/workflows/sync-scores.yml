@@ -20,9 +20,11 @@ name: sync-scores
 # score-branch code. It is idempotent: when score-update == main it does
 # nothing, so it composes harmlessly with the normal PR path.
 #
-# The push trigger fires because the routine pushes score-update with a PAT
-# (PAT pushes DO fire workflow events); this job pushes to MAIN with the
-# built-in GITHUB_TOKEN, whose pushes do NOT trigger workflows — so no loop.
+# NOTE: GitHub reads a push-triggered workflow from the PUSHED branch, so this
+# file must carry the push trigger on score-update itself (not only on main).
+# The routine pushes score-update with a PAT (PAT pushes DO fire workflow
+# events); this job pushes to MAIN with the built-in GITHUB_TOKEN, whose pushes
+# do NOT trigger workflows — so no loop.
 on:
   push:
     branches: [score-update]   # fire instantly when a routine pushes a score
