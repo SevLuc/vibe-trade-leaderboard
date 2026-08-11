@@ -1,13 +1,17 @@
 {
   "name": "luc-theme-concentrated",
   "github": "SevLuc",
-  "return_pct": 0.0,
-  "as_of": "2026-08-10",
-  "joined": "2026-08-10",
+  "return_pct": 0.03,
+  "as_of": "2026-08-11",
+  "joined": "2026-06-22",
   "history": [
     {
       "date": "2026-08-10",
       "return_pct": 0.0
+    },
+    {
+      "date": "2026-08-11",
+      "return_pct": 0.03
     }
   ]
 }
