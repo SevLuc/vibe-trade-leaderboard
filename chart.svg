@@ -1,14 +1,14 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 260" width="640" height="260" role="img" aria-label="Cumulative percent return since joining, per strategy">
-<line id="zero" x1="44" y1="213.6" x2="500" y2="213.6" stroke="#999999" stroke-width="1" stroke-dasharray="3 3"/>
-<text x="38" y="216.6" font-size="10" fill="#888888" text-anchor="end" font-family="sans-serif">0%</text>
+<line id="zero" x1="44" y1="205.2" x2="500" y2="205.2" stroke="#999999" stroke-width="1" stroke-dasharray="3 3"/>
+<text x="38" y="208.2" font-size="10" fill="#888888" text-anchor="end" font-family="sans-serif">0%</text>
 <text x="38" y="24.0" font-size="10" fill="#888888" text-anchor="end" font-family="sans-serif">+5.1%</text>
-<text x="38" y="232.0" font-size="10" fill="#888888" text-anchor="end" font-family="sans-serif">-0.5%</text>
+<text x="38" y="232.0" font-size="10" fill="#888888" text-anchor="end" font-family="sans-serif">-0.7%</text>
 <text x="44" y="250" font-size="10" fill="#888888" font-family="sans-serif">2026-08-10</text>
-<text x="500" y="250" font-size="10" fill="#888888" text-anchor="end" font-family="sans-serif">2026-08-13</text>
-<polyline points="44.0,213.6 196.0,212.4 348.0,148.2 500.0,30.9" fill="none" stroke="#185FA5" stroke-width="2"/>
-<polyline points="44.0,213.6 196.0,217.1 348.0,162.2 500.0,168.8" fill="none" stroke="#0F6E56" stroke-width="2"/>
+<text x="500" y="250" font-size="10" fill="#888888" text-anchor="end" font-family="sans-serif">2026-08-14</text>
+<polyline points="44.0,205.2 158.0,204.1 272.0,142.8 386.0,30.9" fill="none" stroke="#185FA5" stroke-width="2"/>
+<polyline points="44.0,205.2 158.0,208.6 272.0,156.1 386.0,162.5 500.0,217.1" fill="none" stroke="#0F6E56" stroke-width="2"/>
 <line x1="510" y1="20" x2="526" y2="20" stroke="#185FA5" stroke-width="2"/>
 <text x="530" y="23" font-size="10" fill="#888888" font-family="sans-serif">luc-theme-concentr… +4.7%</text>
 <line x1="510" y1="36" x2="526" y2="36" stroke="#0F6E56" stroke-width="2"/>
-<text x="530" y="39" font-size="10" fill="#888888" font-family="sans-serif">luc-sentiment (pap… +1.1%</text>
+<text x="530" y="39" font-size="10" fill="#888888" font-family="sans-serif">luc-sentiment (pap… -0.3%</text>
 </svg>
