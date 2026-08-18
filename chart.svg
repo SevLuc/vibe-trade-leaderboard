@@ -4,11 +4,11 @@
 <text x="38" y="24.0" font-size="10" fill="#888888" text-anchor="end" font-family="sans-serif">+8.0%</text>
 <text x="38" y="232.0" font-size="10" fill="#888888" text-anchor="end" font-family="sans-serif">-0.9%</text>
 <text x="44" y="250" font-size="10" fill="#888888" font-family="sans-serif">2026-08-10</text>
-<text x="500" y="250" font-size="10" fill="#888888" text-anchor="end" font-family="sans-serif">2026-08-17</text>
-<polyline points="44.0,210.1 135.2,209.4 226.4,169.5 317.6,96.8 500.0,30.9" fill="none" stroke="#185FA5" stroke-width="2"/>
-<polyline points="44.0,210.1 135.2,212.3 226.4,178.2 317.6,182.3 408.8,217.1 500.0,112.0" fill="none" stroke="#0F6E56" stroke-width="2"/>
-<line x1="510" y1="20" x2="526" y2="20" stroke="#185FA5" stroke-width="2"/>
-<text x="530" y="23" font-size="10" fill="#888888" font-family="sans-serif">luc-theme-concentr… +7.4%</text>
-<line x1="510" y1="36" x2="526" y2="36" stroke="#0F6E56" stroke-width="2"/>
-<text x="530" y="39" font-size="10" fill="#888888" font-family="sans-serif">luc-sentiment (pap… +4.1%</text>
+<text x="500" y="250" font-size="10" fill="#888888" text-anchor="end" font-family="sans-serif">2026-08-18</text>
+<polyline points="44.0,210.1 120.0,212.3 196.0,178.2 272.0,182.3 348.0,217.1 424.0,112.0" fill="none" stroke="#0F6E56" stroke-width="2"/>
+<polyline points="44.0,210.1 120.0,209.4 196.0,169.5 272.0,96.8 424.0,30.9 500.0,135.5" fill="none" stroke="#185FA5" stroke-width="2"/>
+<line x1="510" y1="20" x2="526" y2="20" stroke="#0F6E56" stroke-width="2"/>
+<text x="530" y="23" font-size="10" fill="#888888" font-family="sans-serif">luc-sentiment (pap… +4.1%</text>
+<line x1="510" y1="36" x2="526" y2="36" stroke="#185FA5" stroke-width="2"/>
+<text x="530" y="39" font-size="10" fill="#888888" font-family="sans-serif">luc-theme-concentr… +3.1%</text>
 </svg>
