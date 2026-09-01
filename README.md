@@ -4,7 +4,7 @@
 
 | # | Strategy | Return | Trend | As of | Days |
 |---|---|---|---|---|---|
-| 1 | luc-sentiment (paper) | -3.93% | <img src="sparklines/SevLuc_paper.svg" alt="trend" height="20"> | 2026-08-31 | 20 |
+| 1 | luc-sentiment (paper) | -4.60% | <img src="sparklines/SevLuc_paper.svg" alt="trend" height="20"> | 2026-09-01 | 21 |
 | 2 | luc-theme-concentrated (live) | -6.40% | <img src="sparklines/SevLuc_live.svg" alt="trend" height="20"> | 2026-09-01 | 71 |
 
 *Return = cumulative % since joining, on an Alpaca account (**paper** or **live**, labelled per row). Honor system — audit anyone's score via this repo's git history.*
