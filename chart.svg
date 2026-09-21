@@ -5,10 +5,10 @@
 <text x="38" y="232.0" font-size="10" fill="#888888" text-anchor="end" font-family="sans-serif">-10.4%</text>
 <text x="44" y="250" font-size="10" fill="#888888" font-family="sans-serif">2026-08-10</text>
 <text x="500" y="250" font-size="10" fill="#888888" text-anchor="end" font-family="sans-serif">2026-09-21</text>
+<polyline points="44.0,114.7 63.0,114.4 82.0,95.8 101.0,61.7 139.0,30.9 158.0,79.8 177.0,98.8 196.0,126.0 215.0,92.7 234.0,146.8 253.0,128.3 272.0,135.3 291.0,130.4 310.0,177.9 329.0,187.0 348.0,175.4 367.0,156.8 386.0,143.0 405.0,197.9 424.0,187.5 443.0,192.5 462.0,171.0 481.0,180.2 500.0,147.5" fill="none" stroke="#185FA5" stroke-width="2"/>
 <polyline points="44.0,114.7 63.0,115.8 82.0,99.8 101.0,101.7 120.0,118.0 139.0,68.9 158.0,90.6 177.0,71.5 196.0,104.7 215.0,64.3 234.0,113.3 253.0,96.2 272.0,112.9 291.0,107.7 310.0,159.1 329.0,166.7 348.0,159.3 367.0,149.2 386.0,150.8 405.0,217.1 424.0,213.8 443.0,217.1 462.0,189.4 481.0,182.1 500.0,157.0" fill="none" stroke="#0F6E56" stroke-width="2"/>
-<polyline points="44.0,114.7 63.0,114.4 82.0,95.8 101.0,61.7 139.0,30.9 158.0,79.8 177.0,98.8 196.0,126.0 215.0,92.7 234.0,146.8 253.0,128.3 272.0,135.3 291.0,130.4 310.0,177.9 329.0,187.0 348.0,175.4 367.0,156.8 386.0,143.0 405.0,197.9 424.0,187.5 443.0,192.5 462.0,171.0 481.0,180.2" fill="none" stroke="#185FA5" stroke-width="2"/>
-<line x1="510" y1="20" x2="526" y2="20" stroke="#0F6E56" stroke-width="2"/>
-<text x="530" y="23" font-size="10" fill="#888888" font-family="sans-serif">luc-sentiment (pap… -3.7%</text>
-<line x1="510" y1="36" x2="526" y2="36" stroke="#185FA5" stroke-width="2"/>
-<text x="530" y="39" font-size="10" fill="#888888" font-family="sans-serif">luc-theme-concentr… -5.8%</text>
+<line x1="510" y1="20" x2="526" y2="20" stroke="#185FA5" stroke-width="2"/>
+<text x="530" y="23" font-size="10" fill="#888888" font-family="sans-serif">luc-theme-concentr… -2.9%</text>
+<line x1="510" y1="36" x2="526" y2="36" stroke="#0F6E56" stroke-width="2"/>
+<text x="530" y="39" font-size="10" fill="#888888" font-family="sans-serif">luc-sentiment (pap… -3.7%</text>
 </svg>
