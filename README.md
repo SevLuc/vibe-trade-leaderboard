@@ -1,7 +1,9 @@
 # 🏆 vibe-trade leaderboard
 
+![cumulative return since joining](chart.svg)
+
 | # | Strategy | Return | Trend | As of | Days |
 |---|---|---|---|---|---|
-| – | *no scores yet* | – | – | – | – |
+| 1 | luc-sentiment (paper) | -9.80% | <img src="sparklines/SevLuc_paper.svg" alt="trend" height="20"> | 2026-10-15 | 0 |
 
 *Return = cumulative % since joining, on an Alpaca account (**paper** or **live**, labelled per row). Honor system — audit anyone's score via this repo's git history.*
