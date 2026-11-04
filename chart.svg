@@ -1,14 +1,14 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 260" width="640" height="260" role="img" aria-label="Cumulative percent return since joining, per strategy">
-<line id="zero" x1="44" y1="42.6" x2="500" y2="42.6" stroke="#999999" stroke-width="1" stroke-dasharray="3 3"/>
-<text x="38" y="45.6" font-size="10" fill="#888888" text-anchor="end" font-family="sans-serif">0%</text>
+<line id="zero" x1="44" y1="42.4" x2="500" y2="42.4" stroke="#999999" stroke-width="1" stroke-dasharray="3 3"/>
+<text x="38" y="45.4" font-size="10" fill="#888888" text-anchor="end" font-family="sans-serif">0%</text>
 <text x="38" y="24.0" font-size="10" fill="#888888" text-anchor="end" font-family="sans-serif">+1.5%</text>
-<text x="38" y="232.0" font-size="10" fill="#888888" text-anchor="end" font-family="sans-serif">-10.7%</text>
+<text x="38" y="232.0" font-size="10" fill="#888888" text-anchor="end" font-family="sans-serif">-10.9%</text>
 <text x="44" y="250" font-size="10" fill="#888888" font-family="sans-serif">2026-10-15</text>
 <text x="500" y="250" font-size="10" fill="#888888" text-anchor="end" font-family="sans-serif">2026-11-04</text>
-<polyline points="44.0,48.8 79.1,115.4 114.2,82.0 149.2,68.0 184.3,145.6 219.4,155.7 254.5,141.3 289.5,79.9 324.6,30.9 359.7,45.3 394.8,129.2 429.8,186.2 464.9,152.5 500.0,187.3" fill="none" stroke="#0F6E56" stroke-width="2"/>
-<polyline points="44.0,57.7 79.1,93.4 114.2,74.2 149.2,63.6 184.3,164.7 219.4,171.5 254.5,159.1 289.5,110.6 324.6,58.1 359.7,70.3 394.8,163.5 464.9,175.0 500.0,217.1" fill="none" stroke="#185FA5" stroke-width="2"/>
+<polyline points="44.0,48.5 79.1,114.0 114.2,81.2 149.2,67.4 184.3,143.7 219.4,153.7 254.5,139.5 289.5,79.1 324.6,30.9 359.7,45.0 394.8,127.7 429.8,183.7 464.9,150.6 500.0,184.8" fill="none" stroke="#0F6E56" stroke-width="2"/>
+<polyline points="44.0,57.3 79.1,92.4 114.2,73.5 149.2,63.0 184.3,162.6 219.4,169.2 254.5,157.0 289.5,109.3 324.6,57.6 359.7,69.7 394.8,161.4 464.9,172.7 500.0,217.1" fill="none" stroke="#185FA5" stroke-width="2"/>
 <line x1="510" y1="20" x2="526" y2="20" stroke="#0F6E56" stroke-width="2"/>
 <text x="530" y="23" font-size="10" fill="#888888" font-family="sans-serif">luc-sentiment (pap… -8.2%</text>
 <line x1="510" y1="36" x2="526" y2="36" stroke="#185FA5" stroke-width="2"/>
-<text x="530" y="39" font-size="10" fill="#888888" font-family="sans-serif">luc-theme-concentr… -9.8%</text>
+<text x="530" y="39" font-size="10" fill="#888888" font-family="sans-serif">luc-theme-concentr… -10.0%</text>
 </svg>
