@@ -1,14 +1,14 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 260" width="640" height="260" role="img" aria-label="Cumulative percent return since joining, per strategy">
-<line id="zero" x1="44" y1="38.5" x2="500" y2="38.5" stroke="#999999" stroke-width="1" stroke-dasharray="3 3"/>
-<text x="38" y="41.5" font-size="10" fill="#888888" text-anchor="end" font-family="sans-serif">0%</text>
-<text x="38" y="24.0" font-size="10" fill="#888888" text-anchor="end" font-family="sans-serif">+1.9%</text>
-<text x="38" y="232.0" font-size="10" fill="#888888" text-anchor="end" font-family="sans-serif">-16.7%</text>
+<line id="zero" x1="44" y1="37.4" x2="500" y2="37.4" stroke="#999999" stroke-width="1" stroke-dasharray="3 3"/>
+<text x="38" y="40.4" font-size="10" fill="#888888" text-anchor="end" font-family="sans-serif">0%</text>
+<text x="38" y="24.0" font-size="10" fill="#888888" text-anchor="end" font-family="sans-serif">+2.2%</text>
+<text x="38" y="232.0" font-size="10" fill="#888888" text-anchor="end" font-family="sans-serif">-19.7%</text>
 <text x="44" y="250" font-size="10" fill="#888888" font-family="sans-serif">2026-10-15</text>
 <text x="500" y="250" font-size="10" fill="#888888" text-anchor="end" font-family="sans-serif">2026-11-05</text>
-<polyline points="44.0,42.6 76.6,86.0 109.1,64.2 141.7,55.1 174.3,105.7 206.9,112.3 239.4,102.9 272.0,62.9 304.6,30.9 337.1,40.3 369.7,95.0 402.3,132.2 434.9,110.2 467.4,139.7 500.0,199.5" fill="none" stroke="#0F6E56" stroke-width="2"/>
-<polyline points="44.0,48.4 76.6,71.7 109.1,59.2 141.7,52.2 174.3,118.2 206.9,122.6 239.4,114.5 272.0,82.9 304.6,48.6 337.1,56.6 369.7,117.4 434.9,124.9 467.4,154.3 500.0,217.1" fill="none" stroke="#185FA5" stroke-width="2"/>
+<polyline points="44.0,40.9 76.6,77.9 109.1,59.3 141.7,51.5 174.3,94.7 206.9,100.3 239.4,92.3 272.0,58.2 304.6,30.9 337.1,38.9 369.7,85.6 402.3,117.3 434.9,98.6 467.4,123.8 500.0,174.7" fill="none" stroke="#0F6E56" stroke-width="2"/>
+<polyline points="44.0,45.8 76.6,65.7 109.1,55.0 141.7,49.1 174.3,105.4 206.9,109.1 239.4,102.2 272.0,75.3 304.6,46.0 337.1,52.8 369.7,104.7 434.9,111.1 467.4,136.2 500.0,217.1" fill="none" stroke="#185FA5" stroke-width="2"/>
 <line x1="510" y1="20" x2="526" y2="20" stroke="#0F6E56" stroke-width="2"/>
 <text x="530" y="23" font-size="10" fill="#888888" font-family="sans-serif">luc-sentiment (pap… -13.9%</text>
 <line x1="510" y1="36" x2="526" y2="36" stroke="#185FA5" stroke-width="2"/>
-<text x="530" y="39" font-size="10" fill="#888888" font-family="sans-serif">luc-theme-concentr… -15.4%</text>
+<text x="530" y="39" font-size="10" fill="#888888" font-family="sans-serif">luc-theme-concentr… -18.2%</text>
 </svg>
