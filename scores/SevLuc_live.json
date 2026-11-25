@@ -1,7 +1,7 @@
 {
   "name": "luc-theme-concentrated",
   "github": "SevLuc",
-  "return_pct": -32.65,
+  "return_pct": -31.74,
   "as_of": "2026-11-25",
   "joined": "2026-10-15",
   "history": [
@@ -115,7 +115,7 @@
     },
     {
       "date": "2026-11-25",
-      "return_pct": -32.65
+      "return_pct": -31.74
     }
   ]
 }
